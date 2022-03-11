@@ -25,3 +25,19 @@ List<String> FastingTxt = [
   'Yes, occasionally',
   'i\'m an experienced faster!'
 ];
+
+List<List<String>> browse = [
+  ['Muscle Group', 'assets/browse/1.png'],
+  ['Workout Focus', 'assets/browse/2.png'],
+  ['Muscle Group', 'assets/browse/3.png'],
+  ['Muscle Group', 'assets/browse/4.png']
+];
+
+List<String> recent = [
+  'assets/collection/recent_1.png',
+  'assets/collection/recent_2.png'
+];
+List<String> saved = [
+  'assets/collection/saved_1.png',
+  'assets/collection/saved_2.png'
+];

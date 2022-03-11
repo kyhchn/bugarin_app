@@ -93,6 +93,15 @@ flutter:
   - assets/buttons/health.png
   - assets/buttons/health_1.png
   - assets/buttons/message.png
+  - assets/bg_login.png
+  - assets/browse/1.png
+  - assets/browse/2.png
+  - assets/browse/3.png
+  - assets/browse/4.png
+  - assets/collection/recent_1.png
+  - assets/collection/recent_2.png
+  - assets/collection/saved_1.png
+  - assets/collection/saved_2.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

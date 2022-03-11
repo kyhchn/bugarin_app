@@ -15,66 +15,85 @@ class LoginChoice extends StatefulWidget {
 class _LoginChoiceState extends State<LoginChoice> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/bg pak haji.jpg'), fit: BoxFit.fill)
-            ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 625, 20, 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            ElevatedButton(
-              onPressed: () => Navigator.push(
-                  context, CupertinoPageRoute(builder: (_) => SignUp())),
-              child: Padding(
-                padding: const EdgeInsets.all(5),
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  height: 50,
-                  child: Center(
-                    child: Text(
-                      'Join',
-                      style: TextStyle(fontSize: 30),
-                    ),
-                  ),
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  primary: primary,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30))),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.push(
-                  context, CupertinoPageRoute(builder: (_) => LoginPage())),
-              child: Padding(
-                padding: const EdgeInsets.all(5),
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  height: 50,
-                  child: Center(
-                    child: Text(
-                      'Sign in',
-                      style: TextStyle(fontSize: 30, color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                  side: BorderSide(width: 3, color: primary),
-                  elevation: 0,
-                  primary: Colors.transparent,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30))),
-            ),
-          ],
+    return Column(
+      children: [
+        SizedBox(
+          height: 32,
         ),
-      ),
+        Container(
+          height: MediaQuery.of(context).size.height - 32,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              image: DecorationImage(
+                  image: AssetImage('assets/bg_login.png'), fit: BoxFit.fill)),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0,350 , 0, 50),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'BUGARIN',
+                  style: TextStyle(
+                      fontFamily: 'Worksans',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 55),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => Navigator.push(
+                          context, CupertinoPageRoute(builder: (_) => SignUp())),
+                      child: Padding(
+                        padding: const EdgeInsets.all(5),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.3,
+                          height: 50,
+                          child: Center(
+                            child: Text(
+                              'Join',
+                              style: TextStyle(fontSize: 30, color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          primary: primary,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30))),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => Navigator.push(context,
+                          CupertinoPageRoute(builder: (_) => LoginPage())),
+                      child: Padding(
+                        padding: const EdgeInsets.all(5),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.3,
+                          height: 50,
+                          child: Center(
+                            child: Text(
+                              'Sign in',
+                              style: TextStyle(fontSize: 30, color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          side: BorderSide(width: 3, color: primary),
+                          elevation: 0,
+                          primary: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30))),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

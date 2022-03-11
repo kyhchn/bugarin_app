@@ -1,5 +1,6 @@
 import 'package:bugarin_app/Menu/MainMenu/Widgets/belomjadi.dart';
 import 'package:bugarin_app/Menu/MainMenu/Widgets/browsee.dart';
+import 'package:bugarin_app/Menu/MainMenu/Widgets/collection.dart';
 import 'package:bugarin_app/Menu/MainMenu/Widgets/foryou.dart';
 import 'package:bugarin_app/Menu/MainMenu/Widgets/personaltrainer.dart';
 import 'package:bugarin_app/Menu/MainMenu/list.dart';
@@ -35,23 +36,30 @@ class _WorkOutState extends State<WorkOut> {
                         });
                       },
                       child: Container(
+                        decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                          color: _isClicked == index ? Colors.black : Colors.transparent,
+                          width: 3,
+                        ))),
                         child: Center(
-                            child: Text(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 13),
+                              child: Text(
                           appBarWorkout.elementAt(index),
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight:
                                   _isClicked == index ? FontWeight.bold : null,
-                              decoration: _isClicked == index
-                                  ? TextDecoration.underline
-                                  : null),
-                        )),
+                          ),
+                        ),
+                            )),
                       ),
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
                     return SizedBox(
-                      width: 30,
+                      width: 0,
                     );
                   },
                   itemCount: appBarWorkout.length),
@@ -63,9 +71,9 @@ class _WorkOutState extends State<WorkOut> {
                   : _isClicked == 1
                       ? Browse()
                       : _isClicked == 2
-                          ? Yahahahahahaha()
-                          : PersonalTrainer()
-          )],
+                          ? Collection()
+                          : PersonalTrainer())
+        ],
       ),
     );
   }
