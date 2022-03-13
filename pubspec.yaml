@@ -102,6 +102,20 @@ flutter:
   - assets/collection/recent_2.png
   - assets/collection/saved_1.png
   - assets/collection/saved_2.png
+  - assets/diet/frame.png
+  - assets/caloriesFood/chickenSteak.png
+  - assets/caloriesFood/salmonSashimi.png
+  - assets/caloriesFood/mixedRice.png
+  - assets/caloriesFood/meatBalls.png
+  - assets/caloriesFood/button.png
+  - assets/king.png
+  - assets/diet/steak.png
+  - assets/diet/sushi.png
+  - assets/diet/sushi_details.png
+  - assets/insight/periods.png
+  - assets/insight/choose.png
+  - assets/insight/covidcard1.png
+  - assets/insight/covidcard2.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

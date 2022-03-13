@@ -42,9 +42,12 @@ class _FastingState extends State<Fasting> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'bugarin_app',
-        theme: ThemeData(fontFamily: 'WorkSans', primaryColor: primary, primarySwatch: primaryColor),
+        theme: ThemeData(
+            fontFamily: 'WorkSans',
+            primaryColor: primary,
+            primarySwatch: primaryColor),
         home: Scaffold(
-          backgroundColor: Colors.white,
+            backgroundColor: Colors.white,
             appBar: AppBar(
               leading: IconButton(
                   onPressed: () => Navigator.pop(context),
@@ -131,7 +134,10 @@ class _FastingState extends State<Fasting> {
                                                   left: 28),
                                               child: Text(
                                                 FastingTxt.elementAt(index),
-                                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black),
                                               ),
                                             ),
                                           ],
@@ -141,7 +147,7 @@ class _FastingState extends State<Fasting> {
                                                 color: isClicked[index]
                                                     ? primary
                                                     : Colors.grey,
-                                                    width: 3),
+                                                width: 3),
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(30))),
                                       ),
@@ -168,18 +174,28 @@ class _FastingState extends State<Fasting> {
                     Expanded(child: Container()),
                     ElevatedButton(
                       onPressed: canNext
-                          ? () => Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) =>Homepage()), (route) => false)
+                          ? () => Navigator.pushAndRemoveUntil(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) => Homepage()),
+                              (route) => false)
                           : null,
                       child: Container(
                         width: MediaQuery.of(context).size.width - 50,
                         height: 50,
-                        child: Center(child: Text('NEXT', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
+                        child: Center(
+                            child: Text(
+                          'NEXT',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        )),
                       ),
                       style: ElevatedButton.styleFrom(
                         elevation: 5,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 20,

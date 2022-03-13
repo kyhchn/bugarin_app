@@ -1,12 +1,18 @@
 import 'package:bugarin_app/Menu/GetStarted/goal.dart';
 import 'package:bugarin_app/Menu/homepage.dart';
 import 'package:bugarin_app/colors.dart';
+import 'package:bugarin_app/models/cahce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SayHi_Login extends StatelessWidget {
-  const SayHi_Login({Key? key, this.firstName}) : super(key: key);
-  final String? firstName;
+class SayHi_Login extends StatefulWidget {
+  const SayHi_Login({Key? key}) : super(key: key);
+  @override
+  State<SayHi_Login> createState() => _SayHi_LoginState();
+}
+
+class _SayHi_LoginState extends State<SayHi_Login> {
+  final firstname = cache.read('firstname');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +45,7 @@ class SayHi_Login extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Welcome back $firstName, you\'re in',
+              'Welcome back $firstname, you\'re in',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -62,7 +68,6 @@ class SayHi_Login extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30)),
                     primary: primary,
                     elevation: 7),
-                    
               ),
             ),
             SizedBox(

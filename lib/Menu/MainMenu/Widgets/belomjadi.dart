@@ -8,11 +8,12 @@ class Yahahahahahaha extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Center(
-          child: Text(
-        'Design belom ada sayyyy',
-        style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold,),
-        textAlign: TextAlign.center
-      )),
+          child: Text('Design belom adaaaa',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center)),
     );
   }
 }

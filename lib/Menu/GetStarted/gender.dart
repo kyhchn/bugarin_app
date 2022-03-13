@@ -1,5 +1,6 @@
 import 'package:bugarin_app/Menu/GetStarted/activity_level.dart';
 import 'package:bugarin_app/Menu/GetStarted/list.dart';
+import 'package:bugarin_app/models/cahce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -21,6 +22,20 @@ class _GenderState extends State<Gender> {
       isClicked.add(false);
     }
     super.initState();
+  }
+
+  void succes() {
+    String gender = '';
+    for (var i = 0; i < isClicked.length; i++) {
+      if (isClicked.elementAt(0) == true) {
+        if (i == 0) {
+          gender = 'male';
+        } else {
+          gender = 'female';
+        }
+      }
+    }
+    cache.write('gender', gender);
   }
 
   bool canNext = false;
@@ -194,10 +209,13 @@ class _GenderState extends State<Gender> {
                     Expanded(child: Container()),
                     ElevatedButton(
                       onPressed: canNext
-                          ? () => Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                  builder: (builder) => Activity_Level()))
+                          ? () {
+                              succes();
+                              Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                      builder: (builder) => Activity_Level()));
+                            }
                           : null,
                       child: Container(
                         width: MediaQuery.of(context).size.width - 50,

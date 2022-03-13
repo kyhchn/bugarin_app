@@ -1,11 +1,16 @@
 import 'package:bugarin_app/Menu/GetStarted/goal.dart';
 import 'package:bugarin_app/colors.dart';
+import 'package:bugarin_app/models/cahce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SayHi_Register extends StatelessWidget {
-  const SayHi_Register({Key? key, this.firstName}) : super(key: key);
-  final String ?firstName;
+class SayHi_Register extends StatefulWidget {
+  @override
+  State<SayHi_Register> createState() => _SayHi_RegisterState();
+}
+
+class _SayHi_RegisterState extends State<SayHi_Register> {
+  final firstname= cache.read('firstname');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +43,7 @@ class SayHi_Register extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Welcome to Bugarin, $firstName!',
+              'Welcome to Bugarin, $firstname!',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -55,7 +60,8 @@ class SayHi_Register extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
-                onPressed: () => Navigator.push(context, CupertinoPageRoute(builder: (context) => Goal())),
+                onPressed: () => Navigator.push(
+                    context, CupertinoPageRoute(builder: (context) => Goal())),
                 child: SizedBox(
                   child: Center(child: Text('Get Started')),
                   height: 50,

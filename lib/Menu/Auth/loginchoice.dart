@@ -4,6 +4,7 @@ import 'package:bugarin_app/Menu/Auth/signup.dart';
 import 'package:bugarin_app/Menu/MainMenu/premium.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 class LoginChoice extends StatefulWidget {
   LoginChoice({Key? key}) : super(key: key);
@@ -13,6 +14,12 @@ class LoginChoice extends StatefulWidget {
 }
 
 class _LoginChoiceState extends State<LoginChoice> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,7 +34,7 @@ class _LoginChoiceState extends State<LoginChoice> {
               image: DecorationImage(
                   image: AssetImage('assets/bg_login.png'), fit: BoxFit.fill)),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(0,350 , 0, 50),
+            padding: const EdgeInsets.fromLTRB(0, 350, 0, 50),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -43,8 +50,8 @@ class _LoginChoiceState extends State<LoginChoice> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
-                      onPressed: () => Navigator.push(
-                          context, CupertinoPageRoute(builder: (_) => SignUp())),
+                      onPressed: () => Navigator.push(context,
+                          CupertinoPageRoute(builder: (_) => SignUp())),
                       child: Padding(
                         padding: const EdgeInsets.all(5),
                         child: Container(
@@ -53,7 +60,8 @@ class _LoginChoiceState extends State<LoginChoice> {
                           child: Center(
                             child: Text(
                               'Join',
-                              style: TextStyle(fontSize: 30, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 30, color: Colors.white),
                             ),
                           ),
                         ),
@@ -75,7 +83,8 @@ class _LoginChoiceState extends State<LoginChoice> {
                           child: Center(
                             child: Text(
                               'Sign in',
-                              style: TextStyle(fontSize: 30, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 30, color: Colors.white),
                             ),
                           ),
                         ),

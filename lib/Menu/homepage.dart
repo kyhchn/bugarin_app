@@ -2,14 +2,14 @@ import 'package:bugarin_app/Menu/MainMenu/Diet.dart';
 import 'package:bugarin_app/Menu/MainMenu/Insight.dart';
 import 'package:bugarin_app/Menu/MainMenu/Scan.dart';
 import 'package:bugarin_app/Menu/MainMenu/Widgets/belomjadi.dart';
+import 'package:bugarin_app/Menu/MainMenu/Widgets/drawer.dart';
 import 'package:bugarin_app/Menu/MainMenu/myhealth.dart';
 import 'package:bugarin_app/Menu/MainMenu/premium.dart';
 import 'package:bugarin_app/Menu/MainMenu/workout.dart';
 import 'package:bugarin_app/colors.dart';
+import 'package:bugarin_app/models/cahce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -20,36 +20,48 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   int _selectedIndex = 0;
+  final firstname = cache.read('firstname');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer_Widgets(),
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          actions: [
-            IconButton(
-                onPressed: () => Navigator.push(context,
-                    CupertinoPageRoute(builder: (builder) => Yahahahahahaha())),
-                icon: Image.asset(
-                  'assets/buttons/message.png',
-                  width: 25,
-                  height: 25,
-                ))
-          ],
-          leading: IconButton(
-              onPressed: () => Navigator.push(context,
-                    CupertinoPageRoute(builder: (builder) => Yahahahahahaha())),
-              icon: Icon(
-                Icons.menu,
-                color: Colors.black,
-              )),
-          title: Text(
-            'Hello, firstName',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-        ),
+        appBar: _selectedIndex == 0
+            ? AppBar(
+              iconTheme: IconThemeData(color: Colors.black),
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                actions: [
+                  IconButton(
+                      onPressed: () => Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (builder) => Yahahahahahaha())),
+                      icon: Image.asset(
+                        'assets/buttons/message.png',
+                        width: 25,
+                        height: 25,
+                      ))
+                ],
+                title: Text(
+                  'Hello, $firstname',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
+              )
+            : _selectedIndex == 3
+                ? AppBar(
+                    automaticallyImplyLeading: false,
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    title: Center(
+                        child: Text(
+                      'Insight',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )),
+                  )
+                : null,
         bottomNavigationBar: BottomNavigationBar(
           selectedIconTheme: IconThemeData(color: primary),
           unselectedIconTheme: IconThemeData(color: Colors.grey),

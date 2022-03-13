@@ -38,6 +38,9 @@ class _SignUpState extends State<SignUp> {
     _passwordController.dispose();
     super.dispose();
   }
+  void write(){
+    
+  }
 
   @override
   Widget build(BuildContext context) {

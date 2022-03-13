@@ -77,6 +77,7 @@ class _ScanState extends State<Scan> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height: 40,),
           ElevatedButton(
             onPressed: () {
               scanBarcodeNormal();

@@ -1,4 +1,6 @@
+import 'package:bugarin_app/Menu/MainMenu/Widgets/recipes.dart';
 import 'package:bugarin_app/colors.dart';
+import 'package:bugarin_app/models/cahce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -150,7 +152,10 @@ class Premium extends StatelessWidget {
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20))),
-                        onPressed: () {},
+                        onPressed: () {
+                          cache.write('premium', true);
+                          Navigator.pop(context);
+                        },
                         child: Container(
                           height: 40,
                           child: Center(
@@ -173,7 +178,7 @@ class Premium extends StatelessWidget {
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20))),
-                        onPressed: () {},
+                        onPressed: () => Navigator.pop(context),
                         child: Container(
                           height: 40,
                           child: Center(

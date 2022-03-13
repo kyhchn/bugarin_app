@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:bugarin_app/colors.dart';
+import 'package:bugarin_app/models/cahce.dart';
 
 class Height_Weight extends StatefulWidget {
   const Height_Weight({Key? key}) : super(key: key);
@@ -18,6 +19,15 @@ class _Height_WeightState extends State<Height_Weight> {
   final _heightController = TextEditingController();
   final _weightController = TextEditingController();
   bool canNext = false;
+  void succes() {
+    cache.write('height', int.parse(_heightController.text));
+    cache.write('weight', int.parse(_weightController.text));
+  }
+
+  void setBbi(int height) {
+    cache.write('bbi', (height - 100) - (0.1 * (height - 100)).toInt());
+  }
+
   check() {
     if (_heightController.text.isNotEmpty &&
         _weightController.text.isNotEmpty) {
@@ -126,8 +136,14 @@ class _Height_WeightState extends State<Height_Weight> {
                     Expanded(child: Container()),
                     ElevatedButton(
                       onPressed: canNext
-                          ? () => Navigator.push(context,
-                              CupertinoPageRoute(builder: (builder) => Old()))
+                          ? () {
+                              setBbi(int.parse(_heightController.text));
+                              succes();
+                              Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                      builder: (builder) => Old()));
+                            }
                           : null,
                       child: Container(
                         width: MediaQuery.of(context).size.width - 50,
@@ -135,7 +151,8 @@ class _Height_WeightState extends State<Height_Weight> {
                         child: Center(
                             child: Text(
                           'NEXT',
-                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white),
                         )),
                       ),
                       style: ElevatedButton.styleFrom(

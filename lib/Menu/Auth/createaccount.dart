@@ -3,7 +3,7 @@ import 'package:bugarin_app/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
+import 'package:bugarin_app/models/cahce.dart';
 import 'package:bugarin_app/colors.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -20,6 +20,7 @@ class _CreateAccountState extends State<CreateAccount> {
   bool isValid = false;
   bool isObscure = false;
   String date = 'Date of Birth';
+
   checkIsValid() {
     if (_firstnameController.text.isNotEmpty &&
         _lastnameController.text.isNotEmpty &&
@@ -172,10 +173,13 @@ class _CreateAccountState extends State<CreateAccount> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: isValid
-                        ? () => Navigator.of(context).push(CupertinoPageRoute(
-                            builder: (context) => SayHi_Register(
-                                  firstName: _firstnameController.text,
-                                )))
+                        ? () {
+                            cache.write('firstname',_firstnameController.text);
+                            cache.write('lastname', _lastnameController.text);
+                            cache.write('premium', false);
+                            Navigator.of(context).push(CupertinoPageRoute(
+                                builder: (context) => SayHi_Register()));
+                          }
                         : null,
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,

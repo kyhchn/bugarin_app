@@ -1,6 +1,7 @@
 import 'package:bugarin_app/Menu/Auth/sayhi_login.dart';
 import 'package:bugarin_app/Menu/Auth/sayhi_register.dart';
 import 'package:bugarin_app/colors.dart';
+import 'package:bugarin_app/models/cahce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
@@ -36,6 +37,17 @@ class _LoginPageState extends State<LoginPage> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  void write(String firstname, String lastname, String gender, int weight,
+      int height, bool premium) {
+    cache.write('firstname', firstname);
+    cache.write('lastname', lastname);
+    cache.write('gender', gender);
+    cache.write('weight', weight);
+    cache.write('height', height);
+    cache.write('premium', premium);
+    cache.write('bbi', (height - 100) - (0.1 * (height - 100)).toInt());
   }
 
   @override
@@ -157,8 +169,11 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     ElevatedButton(
                       onPressed: isValid
-                          ? () => Navigator.of(context).push(CupertinoPageRoute(
-                              builder: (context) => SayHi_Login()))
+                          ? () {
+                              write('Sri', 'Cahyani', "female", 60, 170, false);
+                              Navigator.of(context).push(CupertinoPageRoute(
+                                  builder: (context) => SayHi_Login()));
+                            }
                           : null,
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
